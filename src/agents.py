@@ -1,7 +1,7 @@
 from typing import TypedDict
 from src.model import llm_model
 from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, PromptTemplate
-from src.prompts import query_prompt, prompt
+from src.prompts import query_prompt
 from typing_extensions import Annotated
 from src.db_connection import db
 
@@ -76,6 +76,21 @@ def generate_answer(state: dict):
         dict: A dictionary containing the AI-generated answer.
     """
     
+    prompt = (
+        "You are a professional data analyst providing a detailed, insightful response. "
+        "Analyze the following information with precision and clarity:\n\n"
+        "Context:\n"
+        f"- Original Question: {state['question']}\n"
+        f"- SQL Query Used: {state['query']}\n\n"
+        "Data Results:\n"
+        f"{state['result']}\n\n"
+        "Response Guidelines:\n"
+        "1. Provide a clear, concise answer to the original question\n"
+        "2. Maintain a formal, data-driven tone\n"
+        "3. dont mention questions in response\n"
+        "4. dont mention SQL queries in response\n"
+    )
+        
     # Invoke the LLM model to generate a response using the retrieved data
     response = llm_model.invoke(prompt)
     
