@@ -85,10 +85,11 @@ def generate_answer(state: dict):
         "Data Results:\n"
         f"{state['result']}\n\n"
         "Response Guidelines:\n"
-        "1. Provide a clear, concise answer to the original question\n"
-        "2. Maintain a formal, data-driven tone\n"
-        "3. dont mention questions in response\n"
-        "4. dont mention SQL queries in response\n"
+        "1. If no relevant data is found in Data Results, clearly state: 'Information not found in our database.'\n"
+        "2. Otherwise, provide a clear, concise answer based on the available data.\n"
+        "3. Maintain a formal, data-driven tone.\n"
+        "4. Do not mention questions in the response.\n"
+        "5. Do not mention SQL queries in the response.\n"
     )
         
     # Invoke the LLM model to generate a response using the retrieved data

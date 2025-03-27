@@ -48,14 +48,7 @@ def main():
     
     It helps analyze spending habits, account balances, and transaction trends.
     
-    #### What I Can Help You With
-    - Analyze transaction patterns
-    - Explore customer spending habits
-    - Provide insights on account activities
-    
-    **Tip:** Ask specific questions about banking data!
-    
-    #### Example Questions
+    #### Example Questions That You Can Ask
     - Which customers have withdrawn more than 10,000 along with the date?
     - Who has the highest account balance along with their last deposit date?
     - Who are the top 5 customers who have deposited the most money?
@@ -63,7 +56,7 @@ def main():
     """)
     
     # Main chat interface
-    st.title("\U0001F4AC Banking Transaction Chatbot")
+    st.title("\U0001F4AC Banking SQL Chatbot")
     
     if "messages" not in st.session_state:
         st.session_state.messages = []
